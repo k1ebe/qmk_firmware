@@ -1,2 +1,18 @@
-# The Default Planck Layout
+# k1ebes Planck layout
+
+The basis for this layout is the default one, but with some modifications. The alternative keyboard layouts are removed, only the Raise, Lower and Adjust layers are preserved. Left Control and Fn has switched places.
+
+## Space layer
+
+This layer is accessed while holding down SPACE and gives easy access to F-keys and number keys.
+
+## To do
+
+### Combo keys
+
+https://docs.qmk.fm/#/feature_combo
+
+Use combo keys for CTRL+V and CTRL+C
+æøå kan nok også settes som komboer
+Can the top row be set to combos for numbers? Ie QW becomes 1 and so forth. Or maybe QA is better...
 
