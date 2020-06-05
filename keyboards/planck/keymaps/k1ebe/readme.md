@@ -1,39 +1,34 @@
-# k1ebes Planck layout
+# k1ebes Planck Layout
 
 The basis for this layout is the default one, but with some modifications. The alternative keyboard layouts are removed, only the Raise, Lower and Adjust layers are preserved. Left Control and Fn has switched places.
 
-## Space layer
 
-This layer is accessed while holding down SPACE and gives easy access to F-keys and number keys.
+## Space Layer
 
-## To do
+This layer is accessed while holding down SPACE and gives easy access to F-keys and number keys. In addition F13 to F21 is also present in the center for shortcut use with Autohotkey.
 
-Finding a solution to å is a top priority. Raise + l is pt å and Lower + l is Å.
+## To Do
 
-### Combo keys
+Raise and Lower seems under utilized. Left side of the keyboard is not used at all at present time.
+Fn-layer is blank - how to use. Maybe layer toggle for numpad...
 
-TAB+Q is 1
-P+Backspace is å
+### Combo Keys
+
+Top row combos as numbers, eg QW turns to 2.
+P+Backspace is å.
 
 https://docs.qmk.fm/#/feature_combo
 
-- Use combo keys for CTRL+V and CTRL+C
-- æøå kan nok også settes som komboer
-- Can the top row be set to combos for numbers? Ie QW becomes 1 and so forth. Or maybe QA is better...
+- Use combo keys for CTRL+V and CTRL+C?
 
 
-## Random thoughts
-
-Swap OS key with the blank left on Control perhaps.
-
-Change the F-keys on LOWER and RAISE to something useful.
-
-Use the three free columns on SPACE as shortcuts - maybe F13 and up.
+## Random Thoughts
 
 Remove numbers on top row of RAISE.
 
-## Commands
 
-compile -kb planck/rev6 -km k1ebe
+## QMK Commands
 
-qmk flash -kb planck/rev6 -km k1ebe
+`compile -kb planck/rev6 -km k1ebe`
+
+`qmk flash -kb planck/rev6 -km k1ebe`
