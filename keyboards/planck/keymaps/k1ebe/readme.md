@@ -21,6 +21,19 @@ https://docs.qmk.fm/#/feature_combo
 - æøå kan nok også settes som komboer
 - Can the top row be set to combos for numbers? Ie QW becomes 1 and so forth. Or maybe QA is better...
 
+
 ## Random thoughts
 
 Swap OS key with the blank left on Control perhaps.
+
+Change the F-keys on LOWER and RAISE to something useful.
+
+Use the three free columns on SPACE as shortcuts - maybe F13 and up.
+
+Remove numbers on top row of RAISE.
+
+## Commands
+
+compile -kb planck/rev6 -km k1ebe
+
+qmk flash -kb planck/rev6 -km k1ebe
