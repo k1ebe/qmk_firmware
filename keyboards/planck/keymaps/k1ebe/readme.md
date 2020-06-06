@@ -21,10 +21,18 @@ https://docs.qmk.fm/#/feature_combo
 
 - Use combo keys for CTRL+V and CTRL+C?
 
+Toggle combos on/off on the Adjust layer ø
+
 
 ## Random Thoughts
 
 Remove numbers on top row of RAISE.
+
+Use the Fn key as Leader key?
+
+Tap Dance? https://www.google.com/search?q=CMB_TOG
+
+Unicode Map for å? https://docs.qmk.fm/#/feature_unicode
 
 
 ## QMK Commands
@@ -32,3 +40,7 @@ Remove numbers on top row of RAISE.
 `compile -kb planck/rev6 -km k1ebe`
 
 `qmk flash -kb planck/rev6 -km k1ebe`
+
+
+## Keymap
+![Keymap image](https://docs.google.com/drawings/d/e/2PACX-1vQU7v-kJCIc_dudvcS_vK0dUUSB-pX31g8Cu2vLY9RYyz1oYrqcUP9vW2FDGSbt5__OcxMfMkruKJXu/pub?w=1287&h=1087)
