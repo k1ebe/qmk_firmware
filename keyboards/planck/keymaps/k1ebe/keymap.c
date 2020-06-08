@@ -48,7 +48,8 @@ enum combos {
   UI_8,
   IO_9,
   OP_0,
-  PBKS_aa //P+Backspace
+  VDNVUP_MUTE,
+  PBKS_aa //P+Backspace 
   };
 
 const uint16_t PROGMEM tabq_combo[] = {KC_TAB, KC_Q, COMBO_END};
@@ -61,6 +62,7 @@ const uint16_t PROGMEM YU_combo[] = {KC_Y, KC_U, COMBO_END};
 const uint16_t PROGMEM UI_combo[] = {KC_U, KC_I, COMBO_END};
 const uint16_t PROGMEM IO_combo[] = {KC_I, KC_O, COMBO_END};
 const uint16_t PROGMEM OP_combo[] = {KC_O, KC_P, COMBO_END};
+const uint16_t PROGMEM MU_combo[] = {KC_VOLD, KC_VOLU, COMBO_END};
 const uint16_t PROGMEM pbks_combo[] = {KC_P, KC_BSPC, COMBO_END};
 
 combo_t key_combos[COMBO_COUNT] = {
@@ -74,6 +76,7 @@ combo_t key_combos[COMBO_COUNT] = {
   [UI_8] = COMBO(UI_combo, KC_8),
   [IO_9] = COMBO(IO_combo, KC_9),
   [OP_0] = COMBO(OP_combo, KC_0),
+  [VDNVUP_MUTE] = COMBO(MU_combo, KC_MUTE),
   [PBKS_aa] = COMBO(pbks_combo, KC_LBRC)
 };
 
