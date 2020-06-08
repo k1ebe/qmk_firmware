@@ -48,7 +48,8 @@ enum combos {
   UI_8,
   IO_9,
   OP_0,
-  PBKS_aa //P+Backspace
+  VDNVUP_MUTE,
+  PBKS_aa //P+Backspace 
   };
 
 const uint16_t PROGMEM tabq_combo[] = {KC_TAB, KC_Q, COMBO_END};
@@ -61,6 +62,7 @@ const uint16_t PROGMEM YU_combo[] = {KC_Y, KC_U, COMBO_END};
 const uint16_t PROGMEM UI_combo[] = {KC_U, KC_I, COMBO_END};
 const uint16_t PROGMEM IO_combo[] = {KC_I, KC_O, COMBO_END};
 const uint16_t PROGMEM OP_combo[] = {KC_O, KC_P, COMBO_END};
+const uint16_t PROGMEM MU_combo[] = {KC_VOLD, KC_VOLU, COMBO_END};
 const uint16_t PROGMEM pbks_combo[] = {KC_P, KC_BSPC, COMBO_END};
 
 combo_t key_combos[COMBO_COUNT] = {
@@ -74,6 +76,7 @@ combo_t key_combos[COMBO_COUNT] = {
   [UI_8] = COMBO(UI_combo, KC_8),
   [IO_9] = COMBO(IO_combo, KC_9),
   [OP_0] = COMBO(OP_combo, KC_0),
+  [VDNVUP_MUTE] = COMBO(MU_combo, KC_MUTE),
   [PBKS_aa] = COMBO(pbks_combo, KC_LBRC)
 };
 
@@ -148,7 +151,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  */
 [_RAISE] = LAYOUT_planck_grid(
     NO_PIPE, KC_1,    KC_2,    KC_3,    KC_4,    KC_5,    KC_6,    KC_7,    KC_8,        KC_9,    KC_0,    KC_DEL,
-    KC_DEL,  _______, _______, _______, _______, _______, _______, _______, LCA(KC_EQL), NO_BSLS, NO_DIAE, NO_GRV,
+    KC_DEL,  _______, _______, _______, _______, _______, _______, _______, LCA(KC_EQL), NO_BSLS, NO_DIAE, NO_QUOT,
     _______, _______, _______, _______, _______, _______, _______, _______, _______,     NO_LCBR, NO_RCBR, _______,
     _______, _______, _______, _______, _______, _______, _______, _______, KC_END,      KC_PGDN, KC_PGUP, KC_HOME
 ),
@@ -183,76 +186,6 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 layer_state_t layer_state_set_user(layer_state_t state) {
   return update_tri_layer_state(state, _LOWER, _RAISE, _ADJUST);
 }
-
-/*bool process_record_user(uint16_t keycode, keyrecord_t *record) {
-  switch (keycode) {
-    case QWERTY:
-      if (record->event.pressed) {
-        print("mode just switched to qwerty and this is a huge string\n");
-        set_single_persistent_default_layer(_QWERTY);
-      }
-      return false;
-      break;
-    case COLEMAK:
-      if (record->event.pressed) {
-        set_single_persistent_default_layer(_COLEMAK);
-      }
-      return false;
-      break;
-    case DVORAK:
-      if (record->event.pressed) {
-        set_single_persistent_default_layer(_DVORAK);
-      }
-      return false;
-      break;
-    case BACKLIT:
-      if (record->event.pressed) {
-        register_code(KC_RSFT);
-        #ifdef BACKLIGHT_ENABLE
-          backlight_step();
-        #endif
-        #ifdef KEYBOARD_planck_rev5
-          writePinLow(E6);
-        #endif
-      } else {
-        unregister_code(KC_RSFT);
-        #ifdef KEYBOARD_planck_rev5
-          writePinHigh(E6);
-        #endif
-      }
-      return false;
-      break;
-    case PLOVER:
-      if (record->event.pressed) {
-        #ifdef AUDIO_ENABLE
-          stop_all_notes();
-          PLAY_SONG(plover_song);
-        #endif
-        layer_off(_RAISE);
-        layer_off(_LOWER);
-        layer_off(_ADJUST);
-        layer_on(_PLOVER);
-        if (!eeconfig_is_enabled()) {
-            eeconfig_init();
-        }
-        keymap_config.raw = eeconfig_read_keymap();
-        keymap_config.nkro = 1;
-        eeconfig_update_keymap(keymap_config.raw);
-      }
-      return false;
-      break;
-    case EXT_PLV:
-      if (record->event.pressed) {
-        #ifdef AUDIO_ENABLE
-          PLAY_SONG(plover_gb_song);
-        #endif
-        layer_off(_PLOVER);
-      }
-      return false;
-      break;
-  }
-  return true;
-}*/
 
 bool muse_mode = false;
 uint8_t last_muse_note = 0;
