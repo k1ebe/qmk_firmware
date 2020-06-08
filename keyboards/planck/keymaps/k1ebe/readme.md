@@ -21,8 +21,6 @@ This layer is accessed while holding down SPACE and gives easy access to F-keys 
 
 ## Combo Keys
 
-Top row combos as numbers, eg QW turns to 2.
-	This is not working that well, especially for "er" as that is a very common sequence both in English and Norwegian. Might have to reconsider this.
 
 P+Backspace is å.
 
@@ -58,3 +56,7 @@ The Norwegian file is added to this folder for reference.
 
 ### Keymap
 ![Keymap image](https://docs.google.com/drawings/d/e/2PACX-1vQU7v-kJCIc_dudvcS_vK0dUUSB-pX31g8Cu2vLY9RYyz1oYrqcUP9vW2FDGSbt5__OcxMfMkruKJXu/pub?w=1287&h=1087)
+
+## Things that have not worked out
+
+- I had combos on the top row so that QW turned into 2 and so forth. That did not work so good especially since ER is a very common pairing in both English and Norwegian.

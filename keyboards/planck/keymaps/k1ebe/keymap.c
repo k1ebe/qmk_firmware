@@ -38,7 +38,7 @@ enum planck_keycodes {
 #define RAISE MO(_RAISE)
 
 enum combos {
-  TABQ_1,
+  /*TABQ_1,
   QW_2,
   WE_3,
   ER_4,
@@ -47,12 +47,12 @@ enum combos {
   YU_7,
   UI_8,
   IO_9,
-  OP_0,
+  OP_0,*/
   VDNVUP_MUTE,
   PBKS_aa //P+Backspace 
   };
 
-const uint16_t PROGMEM tabq_combo[] = {KC_TAB, KC_Q, COMBO_END};
+/*const uint16_t PROGMEM tabq_combo[] = {KC_TAB, KC_Q, COMBO_END};
 const uint16_t PROGMEM QW_combo[] = {KC_Q, KC_W, COMBO_END};
 const uint16_t PROGMEM WE_combo[] = {KC_W, KC_E, COMBO_END};
 const uint16_t PROGMEM ER_combo[] = {KC_E, KC_R, COMBO_END};
@@ -61,12 +61,12 @@ const uint16_t PROGMEM TY_combo[] = {KC_T, KC_Y, COMBO_END};
 const uint16_t PROGMEM YU_combo[] = {KC_Y, KC_U, COMBO_END};
 const uint16_t PROGMEM UI_combo[] = {KC_U, KC_I, COMBO_END};
 const uint16_t PROGMEM IO_combo[] = {KC_I, KC_O, COMBO_END};
-const uint16_t PROGMEM OP_combo[] = {KC_O, KC_P, COMBO_END};
+const uint16_t PROGMEM OP_combo[] = {KC_O, KC_P, COMBO_END};*/ 
 const uint16_t PROGMEM MU_combo[] = {KC_VOLD, KC_VOLU, COMBO_END};
 const uint16_t PROGMEM pbks_combo[] = {KC_P, KC_BSPC, COMBO_END};
 
 combo_t key_combos[COMBO_COUNT] = {
-  [TABQ_1] = COMBO(tabq_combo, KC_1),
+  /*[TABQ_1] = COMBO(tabq_combo, KC_1),
   [QW_2] = COMBO(QW_combo, KC_2),
   [WE_3] = COMBO(WE_combo, KC_3),
   [ER_4] = COMBO(ER_combo, KC_4),
@@ -75,7 +75,7 @@ combo_t key_combos[COMBO_COUNT] = {
   [YU_7] = COMBO(YU_combo, KC_7),
   [UI_8] = COMBO(UI_combo, KC_8),
   [IO_9] = COMBO(IO_combo, KC_9),
-  [OP_0] = COMBO(OP_combo, KC_0),
+  [OP_0] = COMBO(OP_combo, KC_0),*/
   [VDNVUP_MUTE] = COMBO(MU_combo, KC_MUTE),
   [PBKS_aa] = COMBO(pbks_combo, KC_LBRC)
 };
@@ -289,7 +289,7 @@ void matrix_scan_user(void) {
         }
 
         SEQ_ONE_KEY(KC_A) {
-          SEND_STRING(",ok ");
+          SEND_STRING(",ok");
         }
 
 // Double key sequences
