@@ -31,6 +31,11 @@ https://docs.qmk.fm/#/feature_combo
 Toggle combos on/off on the Adjust layer ø
 
 
+## Virtual desktop switch
+
+Left Shift and Left Control switches to previous and next virtual desktop respectively. The code was found here: [https://www.keebtalk.com/t/show-me-your-favorite-qmk-hacks/2682/48](https://www.keebtalk.com/t/show-me-your-favorite-qmk-hacks/2682/48)
+
+
 ## Random Thoughts
 
 Remove numbers on top row of RAISE.

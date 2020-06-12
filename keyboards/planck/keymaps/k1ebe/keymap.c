@@ -38,47 +38,31 @@ enum planck_keycodes {
 #define RAISE MO(_RAISE)
 
 enum combos {
-  /*TABQ_1,
-  QW_2,
-  WE_3,
-  ER_4,
-  RT_5,
-  TY_6,
-  YU_7,
-  UI_8,
-  IO_9,
-  OP_0,*/
-  VDNVUP_MUTE,
+   VDNVUP_MUTE,
   PBKS_aa //P+Backspace 
   };
 
-/*const uint16_t PROGMEM tabq_combo[] = {KC_TAB, KC_Q, COMBO_END};
-const uint16_t PROGMEM QW_combo[] = {KC_Q, KC_W, COMBO_END};
-const uint16_t PROGMEM WE_combo[] = {KC_W, KC_E, COMBO_END};
-const uint16_t PROGMEM ER_combo[] = {KC_E, KC_R, COMBO_END};
-const uint16_t PROGMEM RT_combo[] = {KC_R, KC_T, COMBO_END};
-const uint16_t PROGMEM TY_combo[] = {KC_T, KC_Y, COMBO_END};
-const uint16_t PROGMEM YU_combo[] = {KC_Y, KC_U, COMBO_END};
-const uint16_t PROGMEM UI_combo[] = {KC_U, KC_I, COMBO_END};
-const uint16_t PROGMEM IO_combo[] = {KC_I, KC_O, COMBO_END};
-const uint16_t PROGMEM OP_combo[] = {KC_O, KC_P, COMBO_END};*/ 
 const uint16_t PROGMEM MU_combo[] = {KC_VOLD, KC_VOLU, COMBO_END};
 const uint16_t PROGMEM pbks_combo[] = {KC_P, KC_BSPC, COMBO_END};
 
 combo_t key_combos[COMBO_COUNT] = {
-  /*[TABQ_1] = COMBO(tabq_combo, KC_1),
-  [QW_2] = COMBO(QW_combo, KC_2),
-  [WE_3] = COMBO(WE_combo, KC_3),
-  [ER_4] = COMBO(ER_combo, KC_4),
-  [RT_5] = COMBO(RT_combo, KC_5),
-  [TY_6] = COMBO(TY_combo, KC_6),
-  [YU_7] = COMBO(YU_combo, KC_7),
-  [UI_8] = COMBO(UI_combo, KC_8),
-  [IO_9] = COMBO(IO_combo, KC_9),
-  [OP_0] = COMBO(OP_combo, KC_0),*/
   [VDNVUP_MUTE] = COMBO(MU_combo, KC_MUTE),
   [PBKS_aa] = COMBO(pbks_combo, KC_LBRC)
 };
+
+// Timers for tap detection in process_record_user
+uint16_t lsft_timer;
+uint16_t lctl_timer;
+
+// create some custom keycodes for your keymap
+enum custom_keycodes {
+  P_DESK = SAFE_RANGE,
+  N_DESK
+};
+
+// define some useful send strings
+#define SS_P_DESK SS_LCTRL(SS_LGUI(SS_TAP(X_LEFT)))
+#define SS_N_DESK SS_LCTRL(SS_LGUI(SS_TAP(X_RIGHT)))
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
@@ -96,8 +80,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [_QWERTY] = LAYOUT_planck_grid(
     KC_TAB,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,    KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_BSPC,
     KC_ESC,  KC_A,    KC_S,    KC_D,    KC_F,    KC_G,    KC_H,    KC_J,    KC_K,    KC_L,    NO_OSTR, NO_AE,
-    KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_N,    KC_M,    KC_COMM, KC_DOT,  NO_MINS, KC_ENT ,
-    KC_LCTL, KC_LEAD, KC_LGUI, KC_LALT, LOWER,   LT(_SPACE,KC_SPC), LT(_SPACE,KC_SPC), RAISE, KC_LEFT, KC_DOWN, KC_UP, KC_RGHT
+    P_DESK,  KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_N,    KC_M,    KC_COMM, KC_DOT,  NO_MINS, KC_ENT ,
+    N_DESK,  KC_LEAD, KC_LGUI, KC_LALT, LOWER,   LT(_SPACE,KC_SPC), LT(_SPACE,KC_SPC), RAISE, KC_LEFT, KC_DOWN, KC_UP, KC_RGHT
 ),
 
 
@@ -109,14 +93,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |------+------+------+------+------+------+------+------+------+------+------+------|
  * |      |  F9  |  F10 |  F11 |  F12 |  F19 |  F20 |  F21 |   1  |   2  |   3  |      |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
- * |      |      |      |      |Lower |             |Raise |   0  |   ,  |      |      |
+ * |      |      |      |      |Lower |             |Raise |   0  |   ,  |   ,  |   ,  |
  * `-----------------------------------------------------------------------------------'
  */
 [_SPACE] = LAYOUT_planck_grid(
     _______, KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F13,  KC_F14,  KC_F15,  KC_7, KC_8,    KC_9,    _______,
     _______, KC_F5,   KC_F6,   KC_F7,   KC_F8,   KC_F16,  KC_F17,  KC_F18,  KC_4, KC_5,    KC_6,    XXXXXXX,
     _______, KC_F9,   KC_F10,  KC_F11,  KC_F12,  KC_F19,  KC_F20,  KC_F21,  KC_1, KC_2,    KC_3,    _______,
-    _______, _______, _______, _______, _______, _______, _______, _______, KC_0, KC_COMM, XXXXXXX, XXXXXXX
+    _______, _______, _______, _______, _______, _______, _______, _______, KC_0, KC_COMM, KC_COMM, KC_COMM
 ),
 
 
@@ -323,4 +307,39 @@ bool music_mask_user(uint16_t keycode) {
     default:
       return true;
   }
+}
+bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+
+  switch(keycode) {
+  case P_DESK:
+    if (record->event.pressed) {
+      // Activate LSHIFT
+      lsft_timer = timer_read();
+      SEND_STRING(SS_DOWN(X_LSFT));
+    } else {
+      // Deactivate LSHIFT
+      SEND_STRING(SS_UP(X_LSFT));
+      // If the action was a tap
+      if (timer_elapsed(lsft_timer) < TAPPING_TERM) {
+      SEND_STRING(SS_P_DESK);
+      }
+    }
+    return false;
+
+  case N_DESK:
+    if (record->event.pressed) {
+      // Activate LALT
+      lctl_timer = timer_read();
+      SEND_STRING(SS_DOWN(X_LCTL));
+    } else {
+      // Deactivate LALT
+      SEND_STRING(SS_UP(X_LCTL));
+      // If the action was a tap
+      if (timer_elapsed(lctl_timer) < TAPPING_TERM) {
+      SEND_STRING(SS_N_DESK);
+      }
+    }
+    return false;
+  }
+  return true;
 }
