@@ -38,11 +38,10 @@ Left Shift and Left Control switches to previous and next virtual desktop respec
 
 ## Random Thoughts
 
-Remove numbers on top row of RAISE.
+- Remove numbers on top row of RAISE...
+- Tap Dance? https://www.google.com/search?q=CMB_TOG
+- Use combo keys for CTRL+V and CTRL+C?
 
-Tap Dance? https://www.google.com/search?q=CMB_TOG
-
-Unicode Map for å? https://docs.qmk.fm/#/feature_unicode
 
 ## Resources
 

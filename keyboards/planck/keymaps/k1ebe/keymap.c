@@ -38,7 +38,7 @@ enum planck_keycodes {
 #define RAISE MO(_RAISE)
 
 enum combos {
-   VDNVUP_MUTE,
+  VDNVUP_MUTE,
   PBKS_aa //P+Backspace 
   };
 
@@ -276,6 +276,13 @@ void matrix_scan_user(void) {
           SEND_STRING(",ok");
         }
 
+        SEQ_ONE_KEY(KC_T) {
+          register_code(KC_LCTL);
+          register_code(KC_F24);
+          unregister_code(KC_F24);
+          unregister_code(KC_LCTL);
+        }
+
 // Double key sequences
 
       SEQ_TWO_KEYS(KC_A, KC_A) {  
@@ -296,6 +303,30 @@ void matrix_scan_user(void) {
         unregister_code(KC_LEFT);
       }
 
+      SEQ_TWO_KEYS(KC_T, KC_W) {
+          register_code(KC_LSFT);
+          register_code(KC_F24);
+          unregister_code(KC_F24);
+          unregister_code(KC_LSFT);
+        }
+
+        SEQ_TWO_KEYS(KC_T, KC_C) {
+          register_code(KC_LALT);
+          register_code(KC_F24);
+          unregister_code(KC_F24);
+          unregister_code(KC_LALT);
+        }
+
+        SEQ_TWO_KEYS(KC_T, KC_T) {
+          register_code(KC_LSFT);
+          register_code(KC_LCTL);
+          register_code(KC_F24);
+          unregister_code(KC_F24);
+          unregister_code(KC_LCTL);
+          unregister_code(KC_LSFT);
+        }
+
+      
     }    
 }
 
